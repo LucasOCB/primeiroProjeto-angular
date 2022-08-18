@@ -1,0 +1,19 @@
+input{
+    min-width:300px;
+    margin:0 auto;
+}
+ul li{
+    margin:0 5px;
+}
+ul li a{
+    color:white;
+    border-radius: 10%;
+}
+ul li:hover a{
+    background-color:white;
+    color:black;
+}
+.deslogarLink{
+    color:black;
+    text-decoration: none;
+}

@@ -1,0 +1,33 @@
+<header class="p-3 text-bg-dark">
+    <div class="container-fluid">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a routerLink="home" class="nav-link px-2">Produtos</a></li>
+          <li class="position-relative">
+            <a routerLink="comprar" class="nav-link px-2">Carrinho<i class="fa-solid fa-cart-arrow-down ps-1"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
+                {{ carrinhoService.pegarQuantidadeItens() }}
+                <!-- {{ carrinhoService.pegarQuantidadeItens() }} -->
+              </span>
+            </a>
+          </li>
+          <li><a href="https://github.com/LucasOCB" target="_blank" class="nav-link px-2">linkProjeto<i class="fa-brands fa-github ps-1"></i></a></li>
+        </ul>
+
+        <form action="submit" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-flex" role="search">
+          <input type="search" class="mt-md-3 mt-lg-0  form-control form-control-dark text-bg-dark pe-2" placeholder="Search..." name="mensagem">
+          <button type="submit" class="mt-md-3 mt-lg-0  rounded-3 ms-1"><i class="fa-solid fa-magnifying-glass p-1"></i></button>
+        </form>
+
+        <div class="text-end">
+          <a class="deslogarLink" routerLink="login">
+            <button type="button" class="btn btn-warning" (click)="deslogar()">sair</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>

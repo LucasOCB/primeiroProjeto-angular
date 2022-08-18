@@ -1,0 +1,39 @@
+<div class="container mt-4">
+    <h1 class="fs-1 mb-5">Carrinho</h1>
+    <ul>
+        <li *ngFor="let itemCarrinho of produtosCarrinho" >
+            <div class="card mb-3">
+                <div class="row g-0">
+                  <div class="col-md-2 containerImg">
+                    <img [src]="itemCarrinho.imagem" class="img-fluid border rounded" alt="...">
+                  </div>
+                  <div class="col-md-10" id="corpoCard">
+                    <div class="card-body">
+                        <div>
+                            <h2 class="card-title">{{ itemCarrinho.descricao }}</h2>
+                        </div>
+                        <div>
+                            <p class="card-text"><small class="text-muted">Preço: R${{ itemCarrinho.preco}}</small></p>
+                        </div>
+                        <div>
+                            <p class="card-text"><small class="text-muted">Quantidade: <input type="text" [(ngModel)]="itemCarrinho.quantidadeCompra" class="fs-6" (blur)="atualizarQuantidadeItem(itemCarrinho)"></small></p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-danger mt-2 h-75 rounded-end" (click)="retirarUmItem(itemCarrinho)"><i class="fa-solid fa-x"></i></button>
+                  </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="alert alert-warning" role="alert" *ngIf="aparecerMensagemVazio == true">
+        <h1 class="msgCarrinhoVazio">OPS! parece que no momento não tem nada adicionado ao carrinho</h1>
+    </div>
+    <div class="alert alert-success" role="alert"*ngIf="aparecerMensagemCompra === true">
+        <h1 class="msgCarrinhoVazio">você acabou de efetuar uma compra <i class="fa-solid fa-face-laugh-beam"></i></h1>
+    </div>
+    <p class="fs-3 mt-4">Total: R${{ totalCompra.toFixed(2) }}</p>
+    <div class="botoes mt-5 d-flex justify-content-between">
+        <button type="button" class="btn btn-outline-success"(click)="efetuarCompra()">comprar</button>
+        <button type="button" class="btn btn-outline-danger" (click)="limparCarrinho()">Limpar carrinho</button>
+    </div>  
+</div>

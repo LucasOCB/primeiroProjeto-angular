@@ -1,0 +1,13 @@
+<div id="card" class="container d-flex justify-content-center justify-content-xl-evenly">
+    <div class="cardHover" *ngFor="let produto of produtos">
+        <div class="card">
+            <img [src]="produto.imagem" class="card-img-top border" alt="...">
+            <div class="card-body">
+                <h1 class="card-title fs-3">{{ produto.descricao }}</h1>
+                <p class="card-text preco">R$: {{ produto.preco }}</p>
+                <p class="aVista text-warning fs-4">{{produto.descricaoPreco}}</p>
+                <a routerLink="/produto/{{produto.id}}" class="btn btn-primary">comprar</a>
+            </div>
+        </div>
+    </div>
+</div>

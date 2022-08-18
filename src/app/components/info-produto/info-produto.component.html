@@ -1,0 +1,21 @@
+<div class="container">
+    <div id="infos" class="card mb-3 bg-secondary">
+        <div class="row g-0" *ngIf="produto">
+            <div class="col-md-4">
+                <img [src]="produto.imagem" class="img-fluid rounded-start border" alt="...">
+            </div>
+            <div class="col-md-8 arrumarInfos">
+                <div class="card-body alinharProdutoInfos">
+                    <h1 class="card-title fs-2">{{ produto.descricao}}</h1>
+                    <p class="card-text fs-3"><mark>R$: {{ produto.preco}}0</mark></p>
+                    <p class="card-text fs-3">estoque disponivel: <mark>{{ produto.quantidadeEstoque }}</mark></p>
+                    <div class="form">
+                        <label for="exampleFormControlInput1" class="form-label fs-3">adicionar ao carrinho:</label>
+                        <input [(ngModel)]="quantidadeProduto" type="text" class="form-control" required>
+                    </div>
+                    <button type="button" class="btn btn-outline-warning" (click)="enviarCarrinho()"><a routerLink="/produto/comprar">Carrinho</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

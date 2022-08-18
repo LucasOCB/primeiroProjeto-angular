@@ -1,0 +1,39 @@
+.card{
+    /* height: 200px; */
+    padding:10px;
+}
+.card-body, #corpoCard{
+    display:flex;
+    /* justify-content: center; */
+    align-items: center;
+    gap:70px;
+    padding:0;
+}
+.card-body div{
+    width:25%;
+}
+.card-body div *{
+    margin:0;
+    font-size: 1.3em;
+    text-align: center;
+}
+img{
+    height:120px;
+}
+li{
+    list-style: none;
+}
+ul{
+    padding:0;
+}
+input{
+    width:40px;
+    height:40px;
+}
+.msgCarrinhoVazio{
+    text-align: center;
+    margin:0;
+}
+.alert{
+    margin-bottom:50px;
+}

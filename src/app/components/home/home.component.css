@@ -1,0 +1,21 @@
+#card{
+    /* display:flex; */
+    gap:10px;
+    flex-wrap: wrap;
+    /* justify-content: space-evenly; */
+    width:90%;
+    margin-top:20px;
+}
+.cardHover{
+    width:290px;
+    /* height:560px; */
+}
+.card-body *{
+    margin: 30px 0 0 0;
+}
+#card div *{
+    text-align: center;
+}
+.preco{
+    font-size: 2.3em;
+}
