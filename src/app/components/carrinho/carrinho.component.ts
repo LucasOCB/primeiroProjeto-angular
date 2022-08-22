@@ -22,8 +22,7 @@ export class CarrinhoComponent implements OnInit {
   aparecerMensagemCompra: boolean = false
   timer: any
 
-
-  //funções
+  //funções de atualização
   atualizarHub(): void{
     this.produtosCarrinho = this.carrinhoService.pegarCarrinho()
   }
@@ -33,28 +32,14 @@ export class CarrinhoComponent implements OnInit {
     )
     this.totalCompra = total
   }
-  statusCarrinho(){
+  atualizarStatusCarrinho(){
     if(this.produtosCarrinho.length == 0){
       this.aparecerMensagemVazio = true
       return
     }
     this.aparecerMensagemVazio = false
   }
-  atualizarGeral(): void{
-    this.atualizarHub()
-    this.atualizarValorTotal()
-    this.statusCarrinho()
-  }
-  retirarUmItem(itemEscolhido: produtoCarrinho): void{
-    this.carrinhoService.tirarUmItemCarrinho(itemEscolhido)
-    this.atualizarGeral()
-  }
-  limparCarrinho(): void{
-    this.carrinhoService.limparCarrinho()
-    this.atualizarGeral()
-  }
   atualizarQuantidadeItem(item: produtoCarrinho): void{
-    //a msg aparece msm se o valor não for atualizado
     let validacaoNotificacao: boolean = this.notificacaoService.verificarEstoqueItem(item.quantidadeCompra, item.quantidadeEstoque)
     if(validacaoNotificacao == false){
       this.atualizarHub()
@@ -63,10 +48,25 @@ export class CarrinhoComponent implements OnInit {
     this.carrinhoService.atualizarUmItem(this.produtosCarrinho)
     this.atualizarValorTotal()
   }
+  atualizarGeral(): void{
+    this.atualizarHub()
+    this.atualizarValorTotal()
+    this.atualizarStatusCarrinho()
+  }
+
+  //funções
+  retirarUmItem(itemEscolhido: produtoCarrinho): void{
+    this.carrinhoService.tirarUmItemCarrinho(itemEscolhido)
+    this.atualizarGeral()
+  }
+  limparCarrinho(): void{
+    this.carrinhoService.limparCarrinho()
+    this.atualizarGeral()
+  }
   msgCompraAprovada(){
     if(this.aparecerMensagemCompra == true){
       this.aparecerMensagemCompra = false
-      this.statusCarrinho()
+      this.atualizarStatusCarrinho()
       clearInterval(this.timer)
       return
     }
@@ -84,6 +84,5 @@ export class CarrinhoComponent implements OnInit {
     this.timer = setInterval(() =>{
       this.msgCompraAprovada()
     }, 5000)
-    // setInterval
   }
 }

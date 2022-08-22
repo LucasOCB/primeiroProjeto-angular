@@ -1,13 +1,23 @@
+<div class="container">
+    <h1 class="fs-2">Produtos</h1>
+    <form action="submit" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-flex" role="search">
+        <input type="text" class="mt-md-3 mt-lg-0 form-control form-control-dark text-bg-dark" placeholder="Pesquisar" name="mensagem" [(ngModel)]="itemPesquisa">
+        <button type="submit" class="mt-md-3 mt-lg-0 rounded-3 ms-1" (click)="pesquisarItem()"><i class="fa-solid fa-magnifying-glass p-1"></i></button>
+    </form>
+</div>
 <div id="card" class="container d-flex justify-content-center justify-content-xl-evenly">
     <div class="cardHover" *ngFor="let produto of produtos">
         <div class="card">
             <img [src]="produto.imagem" class="card-img-top border" alt="...">
             <div class="card-body">
-                <h1 class="card-title fs-3">{{ produto.descricao }}</h1>
+                <h1 class="card-title fs-3">{{ produto.descricao | titlecase }}</h1>
                 <p class="card-text preco">R$: {{ produto.preco }}</p>
                 <p class="aVista text-warning fs-4">{{produto.descricaoPreco}}</p>
                 <a routerLink="/produto/{{produto.id}}" class="btn btn-primary">comprar</a>
             </div>
         </div>
     </div>
+</div>
+<div *ngIf="msgPesquisaInvalida" id="alerta" class="mt-3 alert alert-warning w-50 mx-auto" role="alert">
+    ops! parece que não possuimos o item pesquisado
 </div>

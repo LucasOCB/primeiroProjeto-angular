@@ -7,10 +7,10 @@ import { InfoProdutoComponent } from './components/info-produto/info-produto.com
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 
 const routes: Routes = [
-  {path: "home", component: HomeComponent, canActivate: [LoginGuard]},
-  {path: "produto/:id", component: InfoProdutoComponent, canActivate: [LoginGuard]},
-  {path: "login", component: LoginComponent},
-  {path: "comprar", component: CarrinhoComponent, canActivate: [LoginGuard]},
+  {path: "home", component: HomeComponent},
+  {path: "produto/:id", component: InfoProdutoComponent},
+  // {path: "login", component: LoginComponent},
+  {path: "comprar", component: CarrinhoComponent},
   {path: "**", redirectTo: "home", pathMatch:"full"},
   {path: "", redirectTo: "home", pathMatch:"full"}
 ];

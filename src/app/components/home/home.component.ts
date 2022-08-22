@@ -12,23 +12,29 @@ export class HomeComponent implements OnInit {
   constructor(private produtoService: ProdutosService) { }
   
   ngOnInit(): void {
-    this.listarProdutos()
+    this.pegarProdutos()
   }
 
   produtos?: produto[]
   pesquisa: string = ''
-  listarProdutos(){
+  itemPesquisa: string = ''
+  msgPesquisaInvalida: boolean = false
+  
+  pegarProdutos(){
     this.produtos = this.produtoService.pegarProdutos()
   }
-
-  pesquisarItem(itemPesquisa: string): void{
-    console.log(itemPesquisa)
-    console.log("r")
-    if(itemPesquisa == ''){
-      this.listarProdutos
+  pesquisarItem(): void{
+    if(this.itemPesquisa == ''){
+      this.pegarProdutos()
+      this.msgPesquisaInvalida = false
       return
     }
-    this.produtos = this.produtos?.filter((dadoManter) => itemPesquisa === dadoManter.descricao)
+    this.pegarProdutos()
+    this.produtos = this.produtos!.filter((dadoManter) => true == dadoManter.descricao.includes(this.itemPesquisa))
+    this.msgPesquisaInvalida = false
+    if(this.produtos.length == 0){
+      this.msgPesquisaInvalida = true
+    }
   }
 
 }

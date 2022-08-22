@@ -11,17 +11,11 @@
             <a routerLink="comprar" class="nav-link px-2">Carrinho<i class="fa-solid fa-cart-arrow-down ps-1"></i>
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
                 {{ carrinhoService.pegarQuantidadeItens() }}
-                <!-- {{ carrinhoService.pegarQuantidadeItens() }} -->
               </span>
             </a>
           </li>
           <li><a href="https://github.com/LucasOCB" target="_blank" class="nav-link px-2">linkProjeto<i class="fa-brands fa-github ps-1"></i></a></li>
         </ul>
-
-        <form action="submit" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-flex" role="search">
-          <input type="search" class="mt-md-3 mt-lg-0  form-control form-control-dark text-bg-dark pe-2" placeholder="Search..." name="mensagem">
-          <button type="submit" class="mt-md-3 mt-lg-0  rounded-3 ms-1"><i class="fa-solid fa-magnifying-glass p-1"></i></button>
-        </form>
 
         <div class="text-end">
           <a class="deslogarLink" routerLink="login">

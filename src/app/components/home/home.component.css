@@ -19,3 +19,11 @@
 .preco{
     font-size: 2.3em;
 }
+form{
+    padding-left:55px;
+    width: 300px;
+}
+.container h1{
+    text-align: center;
+    margin:20px 0;
+}

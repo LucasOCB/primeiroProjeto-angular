@@ -12,8 +12,8 @@ export class LoginGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       if(!this.login.estouAutenticado()){
-        this.rotas.navigate(["login"])
-        return false
+        // this.rotas.navigate(["login"])
+        return true
       }
       return true
   }
